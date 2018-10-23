@@ -1,0 +1,57 @@
+:root {
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Roboto Slab', serif;
+  --color-white: #ffffff;
+  --color-offwhite: #f7f7f7;
+  --color-black: #111111;
+  --box-shadow: rgb(204, 204, 204) 0px 1px 2px;
+}
+
+body {
+  /* box */
+  background-color: var(--color-offwhite);
+  height: 100vh;
+
+  /* text */
+  color: var(--color-black);
+  font-family: var(--font-primary);
+  font-size: 1.1em;
+}
+
+/* top-level React container */
+div#root {
+  /* display */
+  display: flex;
+  flex-direction: column;
+
+  /* box */
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-secondary);
+}
+
+.navbar {
+  /* display */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  /* box */
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  height: 4rem;
+}
+
+.filterbar {
+  /* display */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
