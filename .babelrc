@@ -7,12 +7,14 @@
         "targets": {
           "esmodules": false
         }
-      }
+      },
+      "babel-plugin-styled-components"
     ],
     "@babel/preset-react"
   ],
   "plugins": [
     "react-hot-loader/babel",
+    "babel-plugin-styled-components",
     "@babel/plugin-transform-react-constant-elements",
     "@babel/plugin-proposal-class-properties"
   ]
