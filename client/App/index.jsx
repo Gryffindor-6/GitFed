@@ -1,11 +1,13 @@
-import React from 'react'
-import Test from '../components/test.jsx';
+import React, { Fragment } from 'react'
+
+import Routes from './Routes'
+import Navbar from '../components/features/Navbar'
 
 const App = () => (
-  <div>
-    <p>Hello, Worlds</p>
-    <Test/>
-  </div>
+  <Fragment>
+    <Navbar />
+    <Routes />
+  </Fragment>
 )
 
 export default App
