@@ -1,39 +1,43 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import { Provider } from 'react-redux'
-import store from './state/store'
+// State
+import { Provider } from 'react-redux';
+import store from './state/store';
 
 // Adds component state to Hot Module Reloading
-import { AppContainer } from 'react-hot-loader'
+import { AppContainer } from 'react-hot-loader';
 
 // Styles
-import { ThemeProvider } from 'styled-components'
-import theme from './theme'
+import { ThemeProvider } from 'styled-components';
+import theme from './theme';
 
 // Polyfills
-import '@babel/polyfill'
-import 'cross-fetch/polyfill'
+import '@babel/polyfill';
+import 'cross-fetch/polyfill';
 
-const root = document.getElementById('root')
+const root = document.getElementById('root');
 const render = () => {
-  const App = require('./App').default
+  const App = require('./App').default;
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </ThemeProvider>
       </Provider>
     </AppContainer>,
     root
-  )
-}
+  );
+};
 
 if (process.env.NODE_ENV !== 'production') {
   module.hot.accept(['./App', './theme'], () => {
-    render()
-  })
+    render();
+  });
 }
 
-render()
+render();
