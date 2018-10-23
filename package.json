@@ -8,13 +8,13 @@
   "browserslist": "> 0.25%, not dead",
   "scripts": {
     "start": "concurrently --kill-others-on-fail \"yarn start:server\" \"yarn start:client\"",
-    "start:client": "webpack-dev-server --hot",
+    "start:client": "webpack-dev-server --hot --config webpack.config.js",
     "start:server": "nodemon server",
     "test": "jest -i",
     "test:watch": "jest -i --watch",
     "test:update": "jest -i --updateSnapshot",
     "test:coverage": "jest -i --coverage",
-    "build": "webpack"
+    "build": "webpack --config webpack.config.js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
@@ -46,7 +46,6 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^3.4.9",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
@@ -59,14 +58,12 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
-    "babel-plugin-styled-components": "^1.8.0",
     "concurrently": "^4.0.1",
     "css-loader": "^1.0.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
-    "jest-styled-components": "^6.2.2",
     "lint-staged": "^7.3.0",
     "nodemon": "^1.18.4",
     "prettier": "^1.14.3",
