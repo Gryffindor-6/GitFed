@@ -1,8 +1,10 @@
 import React from 'react'
+import Test from '../components/test.jsx';
 
 const App = () => (
   <div>
-    <p>Hello, World</p>
+    <p>Hello, Worlds</p>
+    <Test/>
   </div>
 )
 

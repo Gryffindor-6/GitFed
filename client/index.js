@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { Provider } from 'react-redux';
+import store from './state/store';
+
 // Adds component state to Hot Module Reloading
 import { AppContainer } from 'react-hot-loader';
 
@@ -16,7 +19,9 @@ const render = () => {
   const App = require('./App').default;
   ReactDOM.render(
     <AppContainer>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </AppContainer>,
     root
   );
