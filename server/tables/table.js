@@ -15,18 +15,18 @@ const db = pgp(config)
 const createUser = (user) => {
     console.log('creating user in Model', user);
     return db.one(`
-    INSERT INTO "test_table" (id, name, password)
-    VALUES ($/id/, $/name/, $/password/)
+    INSERT INTO "test_table" (user_id, password)
+    VALUES ($/user_id/, $/password/)
     RETURNING *`, user)
 }
 
 createUser({
-    id: 1,
-    name: "Aaron",
+    user_id: "Aaron",
     password: "test5"
 })
 
 
 module.exports = {
+    createUser,
 
 }
