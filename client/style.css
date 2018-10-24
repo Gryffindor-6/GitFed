@@ -1,9 +1,11 @@
 :root {
-  --font-primary: 'Roboto', sans-serif;
-  --font-secondary: 'Roboto Slab', serif;
+  --font-primary: 'Roboto Slab', serif;
+  --font-secondary: 'Roboto', sans-serif;
   --color-white: #ffffff;
   --color-offwhite: #f7f7f7;
   --color-black: #111111;
+  --color-blue: #5883ce;
+  --color-github: #444444;
   --box-shadow: rgb(204, 204, 204) 0px 1px 2px;
 }
 
@@ -18,16 +20,6 @@ body {
   font-size: 1.1em;
 }
 
-/* top-level React container */
-div#root {
-  /* display */
-  display: flex;
-  flex-direction: column;
-
-  /* box */
-  height: 100%;
-}
-
 h1,
 h2,
 h3,
@@ -36,6 +28,17 @@ h5,
 h6 {
   font-family: var(--font-secondary);
 }
+
+/*
+  Top-level React Component
+*/
+div#root {
+  height: 100%;
+}
+
+/*
+  navbar
+*/
 
 .navbar {
   /* display */
@@ -46,12 +49,74 @@ h6 {
   /* box */
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
-  height: 4rem;
+  height: 55px;
 }
+
+/*
+  screens
+*/
+.screens {
+  display: flex;
+  justify-content: center;
+}
+
+/*
+  filterbar
+*/
 
 .filterbar {
   /* display */
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/*
+  login form
+*/
+
+.loginform {
+  /* display */
+  align-self: center;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  /* box */
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  height: 100%;
+  margin: 3rem 0 0;
+  padding: 1rem;
+}
+
+.loginform__heading {
+  display: flex;
+  margin: 0;
+  color: var(--color-blue);
+}
+
+.loginform__github {
+  /* display */
+  align-self: center;
+
+  /* box */
+  background-color: var(--color-github);
+  border: 1px solid var(--color-github);
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 3rem 0;
+  padding: 0.7rem 1rem;
+
+  /* text */
+  color: var(--color-white);
+  font-family: var(--font-secondary);
+}
+
+.loginform__github:hover {
+  text-decoration: underline;
+}
+
+.loginform__github:active {
+  background-color: var(--color-black);
 }
