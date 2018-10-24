@@ -1,3 +1,4 @@
+const { githubLogIn } = require('./controller');
 const express = require('express');
 const router = express.Router();
 
@@ -5,6 +6,8 @@ const router = express.Router();
 router.get('/ping', (req, res) =>
   res.send({ ping: 'ok', route: '/auth/ping' })
 );
+
+router.get('/github', githubLogIn);
 
 /* Configure routes */
 router.use('/sessions', require('../sessions/routes'));
