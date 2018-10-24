@@ -10,12 +10,19 @@ import store from './state/store';
 import { AppContainer } from 'react-hot-loader';
 
 // Styles
-import { ThemeProvider } from 'styled-components';
-import theme from './theme';
+import WebFonts from 'webfontloader';
+import 'normalize.css';
+import './style.css';
 
 // Polyfills
 import '@babel/polyfill';
 import 'cross-fetch/polyfill';
+
+WebFonts.load({
+  google: {
+    families: ['Roboto', 'Roboto Slab']
+  }
+});
 
 const root = document.getElementById('root');
 const render = () => {
@@ -23,11 +30,9 @@ const render = () => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </ThemeProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </Provider>
     </AppContainer>,
     root
@@ -35,7 +40,7 @@ const render = () => {
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  module.hot.accept(['./App', './theme'], () => {
+  module.hot.accept(['./App', './style.css'], () => {
     render();
   });
 }

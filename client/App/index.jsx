@@ -6,7 +6,9 @@ import Navbar from '../components/features/Navbar'
 const App = () => (
   <Fragment>
     <Navbar />
-    <Routes />
+    <main className="screens">
+      <Routes />
+    </main>
   </Fragment>
 )
 
