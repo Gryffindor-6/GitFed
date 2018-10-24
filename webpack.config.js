@@ -17,13 +17,12 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /react-icons\/(.)*(.js)$/,
+        loader: 'babel-loader'
       },
       {
-        test: /\.mjs$/,
-        include: /node_modules/,
-        type: 'javascript/auto'
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
