@@ -36,6 +36,7 @@
     "cookie-parser": "^1.4.3",
     "cross-fetch": "^2.2.2",
     "express": "^4.16.4",
+    "node-fetch": "^2.2.0",
     "normalize.css": "^8.0.0",
     "pg-promise": "^8.5.1",
     "prop-types": "^15.6.2",
