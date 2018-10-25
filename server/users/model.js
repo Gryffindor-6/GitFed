@@ -1,4 +1,6 @@
 const { Client } = require('pg');
+const fetch = require('node-fetch');
+
 const client = new Client();
 const pgp = require('pg-promise')();
 const config = {
@@ -22,11 +24,14 @@ const createUser = user => {
 
 const saveUserData = userData => {
   console.log('saving data');
+  console.log({ userData });
+  let userInfo;
+  // try
   return db.one(
     `
-  INSERT INTO "test_table" 
-  (username, followers, following, img) 
-  VALUES 
+  INSERT INTO "test_table"
+  (username, followers, following, img)
+  VALUES
   ($/username/, $/followers/, $/following/, $/img/)
   RETURNING *;`,
     userData

@@ -19,7 +19,7 @@ class Login extends Component {
   }
 
   handleClick = () => {
-    window.location.href = "https://github.com/login/oauth/authorize?client_id=7371510084e749ed8e9c&redirect_uri=http://localhost:3000/auth/github";
+    window.location.href = "https://github.com/login/oauth/authorize?client_id=7371510084e749ed8e9c&redirect_uri=http://localhost:3000/redirect/";
     // this.props.history.push('/newsfeed')
   }
 

@@ -2,6 +2,7 @@ const fetch = require('node-fetch');
 const { saveUserData } = require('../users/model');
 
 async function githubLogIn(req, res, next) {
+  console.log('token:', req.query.code);
   if (req.query.code) {
     let resp = await fetch(
       `https://github.com/login/oauth/access_token?client_id=7371510084e749ed8e9c&client_secret=b8e12e3fa147cd0305f78360af9cde69ad191642&code=${
@@ -60,16 +61,19 @@ async function getUserInfo(req, res, next) {
 async function storeUserInfo(req, res, next) {
   // return saveUserData(res.locals.userData)
   // .then(res => res.redirect('/newsfeed'));
-  // console.log('userInfo:', res.locals.userData);
+  console.log('userInfo:', res.locals.userData);
   console.log('Now we will store user data');
-  let userInfo;
-  try {
-    userInfo = await saveUserData(res.locals.userData);
-  } catch (error) {
-    console.log({ error });
-  }
+  // let userInfo;
+  // try {
+  //   userInfo = await saveUserData(res.locals.userData);
+  // } catch (error) {
+  //   console.log({ error });
+  // }
+  // res.body.userInfo = userInfo;
   // console.log({userInfo});
-  res.end('Data at this point should be stored');
+  // res.send(userInfo)
+  // res.redirect('/repos');
+  res.send(res.locals.userData);
 }
 
 module.exports = {
