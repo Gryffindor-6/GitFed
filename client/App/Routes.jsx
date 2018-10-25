@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
+import Redirect from './Redirect'
 
 import RepoList from '../components/screens/RepoList'
 import Login from '../components/screens/Login'
@@ -11,6 +12,7 @@ const Routes = () => (
     <Route exact path="/repos" component={RepoList} />
     <Route exact path="/404" component={Page404} />
     <Route exact path="/" component={Login} />
+    <Route exact path='/redirect/' component={Redirect} />
     <Route path="/" component={Page404} />
   </Switch>
 )
