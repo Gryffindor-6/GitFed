@@ -59,21 +59,16 @@ async function getUserInfo(req, res, next) {
 }
 
 async function storeUserInfo(req, res, next) {
-  // return saveUserData(res.locals.userData)
-  // .then(res => res.redirect('/newsfeed'));
-  console.log('userInfo:', res.locals.userData);
+  // console.log('userInfo:', res.locals.userData);
   console.log('Now we will store user data');
   // let userInfo;
-  // try {
-  //   userInfo = await saveUserData(res.locals.userData);
-  // } catch (error) {
-  //   console.log({ error });
-  // }
-  // res.body.userInfo = userInfo;
+  try {
+    userInfo = await saveUserData(res.locals.userData);
+  } catch (error) {
+    console.log({ error });
+  }
   // console.log({userInfo});
-  // res.send(userInfo)
-  // res.redirect('/repos');
-  res.send(res.locals.userData);
+  res.send(userInfo);
 }
 
 module.exports = {
