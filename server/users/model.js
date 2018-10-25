@@ -20,10 +20,26 @@ const createUser = user => {
   );
 };
 
+const saveUserData = userData => {
+  console.log('saving data');
+  return db.one(
+    `
+  INSERT INTO "test_table" 
+  (username, followers, following, img) 
+  VALUES 
+  ($/username/, $/followers/, $/following/, $/img/)
+  RETURNING *;`,
+    userData
+  );
+};
+
 createUser({
   id: 1,
   name: 'Aaron',
   password: 'test5'
 });
 
-module.exports = {};
+module.exports = {
+  saveUserData,
+  createUser
+};
