@@ -1,8 +1,8 @@
 import React from 'react';
-import MyComponent from '../../Newsfeed';
+import MyComponent from '../../RepoList';
 
 describe('components', () => {
-  describe('Newsfeed', () => {
+  describe('RepoList', () => {
     it('renders without crashing', () => {
       shallow(<MyComponent />);
     });

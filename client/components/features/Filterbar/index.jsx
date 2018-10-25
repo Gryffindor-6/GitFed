@@ -1,9 +1,12 @@
 import React from 'react'
 
+import Sliders from '../../common/icons/Sliders'
+import Grid from '../../common/icons/Grid'
+
 const Filterbar = () => (
   <section className="filterbar">
-    <p>filters</p>
-    <p>layout</p>
+    <Sliders />
+    <Grid />
   </section>
 )
 

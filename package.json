@@ -42,6 +42,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-feather": "^1.1.4",
     "react-hot-loader": "^4.3.11",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",

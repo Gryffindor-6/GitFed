@@ -4,7 +4,7 @@ import MyComponent from '../GithubButton';
 describe('components', () => {
   describe('GithubButton', () => {
     it('renders without crashing', () => {
-      shallow(<MyComponent />);
+      shallow(<MyComponent handleClick={jest.fn()} />);
     });
   });
 });
