@@ -1,5 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../state/actions/actionCreators';
+
+
+const mapDispatchToProps = (dispatch) => ({
+  notify: (res) => dispatch(actions.getNotifications(res))
+})
 
 class Redirect extends React.Component {
   componentDidMount(){
@@ -8,7 +15,7 @@ class Redirect extends React.Component {
     fetch(`/auth/github/${this.props.location.search}`).then((res) => {
       return res.json()
     }).then((res) => {
-      console.log({res});
+      this.props.notify(res);
       this.props.history.push('/repos')
     }).catch((error) => {
       console.log({error});
@@ -26,4 +33,4 @@ class Redirect extends React.Component {
   }
 }
 
-export default withRouter(Redirect);
+export default connect(()=>{}, mapDispatchToProps)(withRouter(Redirect));

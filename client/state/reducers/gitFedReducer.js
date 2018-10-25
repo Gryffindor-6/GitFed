@@ -12,6 +12,13 @@ const gitFedReducer = (state = initialState, action) => {
         ...state,
         key: initialState.key++
       };
+
+    case types.NOTIFICATIONS:
+      console.log(action.payload);
+      return {
+        ...state,
+        ...action.payload
+      };
     default:
       return state;
   }
