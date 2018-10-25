@@ -52,6 +52,23 @@ async function getUserInfo(req, res, next) {
       username: json.login,
       following: json.following
     };
+
+    let notiResp = await fetch(
+      'https://api.github.com/notifications?all=true',
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `token ${res.locals.token}`,
+          Accept: 'application/json'
+          // 'X-OAuth-Scopes': 'notifications, user, repo',
+          // 'X-Accepted-OAuth-Scopes': 'notifications, user, repo'
+        }
+      }
+    );
+
+    let notiJson = await notiResp.json();
+    console.log({ notiJson });
+    res.locals.notifications = notiJson;
     next();
   } else {
     console.log('There was an error');
@@ -67,8 +84,9 @@ async function storeUserInfo(req, res, next) {
   } catch (error) {
     console.log({ error });
   }
+  const respObj = { ...userInfo, ...res.locals.notifications };
   // console.log({userInfo});
-  res.send(userInfo);
+  res.send(respObj);
 }
 
 module.exports = {
