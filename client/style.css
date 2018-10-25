@@ -57,6 +57,12 @@ h6 {
   height: 55px;
 }
 
+.navbar__link {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
 /*
   screens
 */
@@ -97,7 +103,8 @@ h6 {
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
   height: 100%;
-  margin: 3rem 0 0;
+  width: 350px;
+  margin: 7rem 0 0;
   padding: 1rem;
 }
 
@@ -110,12 +117,16 @@ h6 {
 .loginform__github {
   /* display */
   align-self: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
   /* box */
   background-color: var(--color-github);
   border: 1px solid var(--color-github);
   border-radius: 4px;
   cursor: pointer;
+  width: 225px;
   margin: 3rem 0;
   padding: 0.7rem 1rem;
 
@@ -126,6 +137,7 @@ h6 {
 
 .loginform__github:hover {
   text-decoration: underline;
+  background-color: #333333;
 }
 
 .loginform__github:active {
@@ -133,10 +145,10 @@ h6 {
 }
 
 /*
-  newsfeed
+  repo-list
 */
 
-.newsfeed {
+.repo-list {
   background-color: var(--color-white);
   box-shadow: var(--box-shadow);
   height: 100%;
@@ -145,7 +157,7 @@ h6 {
   padding: 1rem;
 }
 
-.newsfeed__repos {
+.repo-list__repos {
   margin: 0;
   padding: 0;
   list-style-type: none;

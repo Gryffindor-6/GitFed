@@ -27,5 +27,14 @@ describe('auth', () => {
           expect(res.body.ping).toMatch(/ok/);
         });
     });
+
+    it('should redirect to auth if not authenticated', () => {
+      return request(app)
+        .get('/auth/github')
+        .expect(302)
+        .then(res => {
+          expect(res.header.location).toMatch('/auth');
+        });
+    });
   });
 });
