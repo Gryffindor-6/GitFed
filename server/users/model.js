@@ -22,21 +22,29 @@ const createUser = user => {
   );
 };
 
-const saveUserData = userData => {
+async function saveUserData(userData) {
   console.log('saving data');
   console.log({ userData });
   let userInfo;
   // try
-  return db.one(
-    `
-  INSERT INTO "test_table"
-  (username, followers, following, img)
-  VALUES
-  ($/username/, $/followers/, $/following/, $/img/)
-  RETURNING *;`,
-    userData
-  );
-};
+
+  try {
+    userInfo = await db.one(
+      `
+    INSERT INTO "test_table"
+    (username, followers, following, img)
+    VALUES
+    ($/username/, $/followers/, $/following/, $/img/)
+    RETURNING *;`,
+      userData
+    );
+    // console.log({userInfo});
+    return userInfo;
+  } catch (error) {
+    console.log('error adding user info to database', error);
+    return 'error adding user to database';
+  }
+}
 
 createUser({
   id: 1,
