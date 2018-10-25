@@ -13,8 +13,8 @@ const createUser = user => {
   console.log('creating user in Model', user);
   return db.one(
     `
-    INSERT INTO "test_table" (id, name, password)
-    VALUES ($/id/, $/name/, $/password/)
+    INSERT INTO "gitfeed" (username, followers, following, img)
+    VALUES ($/username/, $/followers/, $/following/, $/img/)
     RETURNING *`,
     user
   );
@@ -24,7 +24,7 @@ const saveUserData = userData => {
   console.log('saving data');
   return db.one(
     `
-  INSERT INTO "test_table" 
+  INSERT INTO "gitfeed" 
   (username, followers, following, img) 
   VALUES 
   ($/username/, $/followers/, $/following/, $/img/)
@@ -34,9 +34,10 @@ const saveUserData = userData => {
 };
 
 createUser({
-  id: 1,
-  name: 'Aaron',
-  password: 'test5'
+  username: 'Aaron',
+  followers: 'Joel',
+  following: 'Denny',
+  img: 'Kwame'
 });
 
 module.exports = {

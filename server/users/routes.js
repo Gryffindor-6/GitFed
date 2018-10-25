@@ -10,5 +10,9 @@ router.get('/ping', (_, res) =>
 router.get('/data', (req, res, next) => {
   console.log('data', res.locals.userData);
 });
+// router.get('/', (req, res) => {
+
+//   res.send(req.userList)
+// })
 
 module.exports = router;
