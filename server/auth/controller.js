@@ -43,10 +43,13 @@ async function getUserInfo(req, res, next) {
 
     let json = await resp.json();
 
+    // console.log({json});
+
     res.locals.userData = {
       img: json.avatar_url,
       followers: json.followers,
-      name: json.name
+      username: json.login,
+      following: json.following
     };
     next();
   } else {
@@ -54,10 +57,18 @@ async function getUserInfo(req, res, next) {
   }
 }
 
-function storeUserInfo(req, res, next) {
+async function storeUserInfo(req, res, next) {
   // return saveUserData(res.locals.userData)
   // .then(res => res.redirect('/newsfeed'));
+  // console.log('userInfo:', res.locals.userData);
   console.log('Now we will store user data');
+  let userInfo;
+  try {
+    userInfo = await saveUserData(res.locals.userData);
+  } catch (error) {
+    console.log({ error });
+  }
+  // console.log({userInfo});
   res.end('Data at this point should be stored');
 }
 
