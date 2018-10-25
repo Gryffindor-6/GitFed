@@ -5,7 +5,7 @@ import Repo from './Repo'
 
 const Repos = ({ repos }) => (
   <section>
-    <ul className="newsfeed__repos">
+    <ul className="repo-list__repos">
       {repos.map(repo => (
         <Repo key={repo.id} {...repo} />
       ))}
